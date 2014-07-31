@@ -19,6 +19,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.FontMetrics;
+import android.media.DeniedByServerException;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -65,6 +68,7 @@ public class RangeBar extends View {
 	private float mTickHeightDP = DEFAULT_TICK_HEIGHT_DP;
 	private float mBarWeight = DEFAULT_BAR_WEIGHT_PX;
 	private int mBarColor = DEFAULT_BAR_COLOR;
+	private int mFontColor = Color.parseColor("#666666");
 	private float mConnectingLineWeight = DEFAULT_CONNECTING_LINE_WEIGHT_PX;
 	private int mConnectingLineColor = DEFAULT_CONNECTING_LINE_COLOR;
 	private int mThumbImageNormal = DEFAULT_THUMB_IMAGE_NORMAL;
@@ -79,7 +83,7 @@ public class RangeBar extends View {
 	private boolean mFirstSetTickCount = true;
 
 	private int mDefaultWidth = 500;
-	private int mDefaultHeight = 100;
+	private int mDefaultHeight = 60;
 
 	private Thumb mLeftThumb;
 	private Thumb mRightThumb;
@@ -91,7 +95,6 @@ public class RangeBar extends View {
 	private float mDensity;
 	private ArrayList<String> mContent;
 	private float mFontSize;
-
 	private float mSdpi;
 
 	public void setData(ArrayList<String> content) {
@@ -189,7 +192,6 @@ public class RangeBar extends View {
 
 		int width;
 		int height;
-
 		// Get measureSpec mode and size values.
 		final int measureWidthMode = MeasureSpec.getMode(widthMeasureSpec);
 		final int measureHeightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -205,6 +207,8 @@ public class RangeBar extends View {
 			width = mDefaultWidth;
 		}
 
+		int fontHeight = (int) getFontHeight();
+
 		// The RangeBar height should be as small as possible.
 		if (measureHeightMode == MeasureSpec.AT_MOST) {
 			height = Math.min(mDefaultHeight, measureHeight);
@@ -214,6 +218,7 @@ public class RangeBar extends View {
 			height = mDefaultHeight;
 		}
 
+		height = height + fontHeight + Math.round(10 * mDensity);
 		setMeasuredDimension(width, height);
 	}
 
@@ -275,6 +280,7 @@ public class RangeBar extends View {
 		mBar.setFontSize(mFontSize);
 		mBar.setData(mContent);
 		mBar.draw(canvas, mLeftIndex);
+		mBar.setFontColor(mFontColor);
 		mLeftThumb.draw(canvas, mTickHeightDP);
 
 	}
@@ -595,6 +601,7 @@ public class RangeBar extends View {
 			mConnectingLineColor = ta.getColor(
 					R.styleable.RangeBar_connectingLineColor,
 					DEFAULT_CONNECTING_LINE_COLOR);
+
 			mThumbRadiusDP = ta.getDimension(R.styleable.RangeBar_thumbRadius,
 					DEFAULT_THUMB_RADIUS_DP);
 			mThumbImageNormal = ta.getResourceId(
@@ -611,6 +618,8 @@ public class RangeBar extends View {
 					DEFAULT_THUMB_COLOR_PRESSED);
 			mFontSize = ta.getDimension(R.styleable.RangeBar_fontSize,
 					24 * mSdpi);
+			mFontColor = ta
+					.getColor(R.styleable.RangeBar_fontColor, mFontColor);
 
 		} finally {
 
@@ -629,6 +638,10 @@ public class RangeBar extends View {
 		mBar = new Bar(getContext(), getMarginLeft(), getYPos(),
 				getBarLength(), mTickCount, mTickHeightDP, mBarWeight,
 				mBarColor, mDensity);
+		// mBar = new Bar(getContext(), getMarginLeft(), getYPos()
+		// + (getWidth() / 2 - (mThumbRadiusDP + 5 * mDensity)),
+		// getBarLength(), mTickCount, mTickHeightDP, mBarWeight,
+		// mBarColor, mDensity);
 		invalidate();
 	}
 
@@ -867,5 +880,12 @@ public class RangeBar extends View {
 
 		public void onIndexChangeListener(RangeBar rangeBar,
 				int leftThumbIndex, int rightThumbIndex);
+	}
+
+	public float getFontHeight() {
+		Paint paint = new Paint();
+		paint.setTextSize(mFontSize);
+		FontMetrics fm = paint.getFontMetrics();
+		return (int) Math.ceil(fm.descent - fm.top) + 2;
 	}
 }

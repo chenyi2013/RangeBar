@@ -25,7 +25,7 @@
             android:id="@+id/rangebar1"
             android:background="#ff00ff"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             custom:barWeight="10dp"
             custom:fontSize="24sp"
             custom:tickCount="4" />

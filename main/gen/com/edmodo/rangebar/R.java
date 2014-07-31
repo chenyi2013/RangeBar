@@ -12,6 +12,7 @@ public final class R {
 		public static final int barWeight = 0x7f010002;
 		public static final int connectingLineColor = 0x7f010005;
 		public static final int connectingLineWeight = 0x7f010004;
+		public static final int fontColor = 0x7f01000c;
 		public static final int fontSize = 0x7f01000b;
 		public static final int thumbColorNormal = 0x7f010009;
 		public static final int thumbColorPressed = 0x7f01000a;
@@ -33,11 +34,12 @@ public final class R {
 		public static final int AppTheme = 0x7f050001;
 	}
 	public static final class styleable {
-		public static final int[] RangeBar = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b };
+		public static final int[] RangeBar = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c };
 		public static final int RangeBar_barColor = 3;
 		public static final int RangeBar_barWeight = 2;
 		public static final int RangeBar_connectingLineColor = 5;
 		public static final int RangeBar_connectingLineWeight = 4;
+		public static final int RangeBar_fontColor = 12;
 		public static final int RangeBar_fontSize = 11;
 		public static final int RangeBar_thumbColorNormal = 9;
 		public static final int RangeBar_thumbColorPressed = 10;

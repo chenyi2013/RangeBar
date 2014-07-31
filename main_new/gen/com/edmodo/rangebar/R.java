@@ -50,6 +50,16 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+        public static int fontColor=0x7f01000c;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
         public static int fontSize=0x7f01000b;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -146,6 +156,7 @@ containing a value of this type.
            <tr><td><code>{@link #RangeBar_barWeight com.edmodo.rangebar:barWeight}</code></td><td></td></tr>
            <tr><td><code>{@link #RangeBar_connectingLineColor com.edmodo.rangebar:connectingLineColor}</code></td><td></td></tr>
            <tr><td><code>{@link #RangeBar_connectingLineWeight com.edmodo.rangebar:connectingLineWeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #RangeBar_fontColor com.edmodo.rangebar:fontColor}</code></td><td></td></tr>
            <tr><td><code>{@link #RangeBar_fontSize com.edmodo.rangebar:fontSize}</code></td><td></td></tr>
            <tr><td><code>{@link #RangeBar_thumbColorNormal com.edmodo.rangebar:thumbColorNormal}</code></td><td></td></tr>
            <tr><td><code>{@link #RangeBar_thumbColorPressed com.edmodo.rangebar:thumbColorPressed}</code></td><td></td></tr>
@@ -159,6 +170,7 @@ containing a value of this type.
            @see #RangeBar_barWeight
            @see #RangeBar_connectingLineColor
            @see #RangeBar_connectingLineWeight
+           @see #RangeBar_fontColor
            @see #RangeBar_fontSize
            @see #RangeBar_thumbColorNormal
            @see #RangeBar_thumbColorPressed
@@ -171,7 +183,8 @@ containing a value of this type.
         public static final int[] RangeBar = {
             0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
             0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c
         };
         /**
           <p>This symbol is the offset where the {@link com.edmodo.rangebar.R.attr#barColor}
@@ -229,6 +242,22 @@ containing a value of this type.
           @attr name com.edmodo.rangebar:connectingLineWeight
         */
         public static final int RangeBar_connectingLineWeight = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.edmodo.rangebar.R.attr#fontColor}
+          attribute's value can be found in the {@link #RangeBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.edmodo.rangebar:fontColor
+        */
+        public static final int RangeBar_fontColor = 12;
         /**
           <p>This symbol is the offset where the {@link com.edmodo.rangebar.R.attr#fontSize}
           attribute's value can be found in the {@link #RangeBar} array.

@@ -120,7 +120,7 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         // Gets the RangeBar
         rangebar = (RangeBar) findViewById(R.id.rangebar1);
         ArrayList<String> list = new ArrayList<String>();
-        list.add("0元");
+        list.add("0中");
         list.add("5元");
         list.add("10元");
         list.add("15元");

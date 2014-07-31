@@ -46,6 +46,8 @@ class Bar {
 	private float mFontTextSize = 24;
 	private float mDensity;
 
+	private int mFontColor;
+
 	public void setData(ArrayList<String> content) {
 		mContent = content;
 	}
@@ -192,7 +194,7 @@ class Bar {
 					canvas.drawText(mContent.get(i), x, mTickStartY - 20*mDensity, paint);
 
 				} else {
-					paint.setColor(Color.WHITE);
+					paint.setColor(mFontColor);
 					canvas.drawText(mContent.get(i), x, mTickStartY - 10*mDensity, paint);
 				}
 			}
@@ -214,11 +216,16 @@ class Bar {
 				canvas.drawText(mContent.get(mNumSegments), mRightX,
 						mTickStartY - 20*mDensity, paint);
 			} else {
-				paint.setColor(Color.WHITE);
+				paint.setColor(mFontColor);
 				canvas.drawText(mContent.get(mNumSegments), mRightX,
 						mTickStartY - 10*mDensity, paint);
 			}
 		}
 
+	}
+
+	public void setFontColor(int color) {
+		// TODO Auto-generated method stub
+		mFontColor = color;
 	}
 }
