@@ -47,6 +47,15 @@ class Bar {
 	private float mDensity;
 
 	private int mFontColor;
+	private int mSelectedFontColor;
+
+	public int getSelectedFontColor() {
+		return mSelectedFontColor;
+	}
+
+	public void setSelectedFontColor(int mSelectedFontColor) {
+		this.mSelectedFontColor = mSelectedFontColor;
+	}
 
 	public void setData(ArrayList<String> content) {
 		mContent = content;
@@ -190,7 +199,7 @@ class Bar {
 			paint.setTextSize(mFontTextSize);
 			if (mContent != null) {
 				if (i == cureentTicet) {
-					paint.setColor(Color.YELLOW);
+					paint.setColor(mSelectedFontColor);
 					canvas.drawText(mContent.get(i), x, mTickStartY - 20*mDensity, paint);
 
 				} else {
@@ -212,7 +221,7 @@ class Bar {
 				(mTickEndY - mTickStartY) / 2 - 5 * mDensity, mPaint);
 		if (mContent != null) {
 			if (mNumSegments == cureentTicet) {
-				paint.setColor(Color.YELLOW);
+				paint.setColor(mSelectedFontColor);
 				canvas.drawText(mContent.get(mNumSegments), mRightX,
 						mTickStartY - 20*mDensity, paint);
 			} else {

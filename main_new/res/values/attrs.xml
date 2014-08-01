@@ -13,7 +13,8 @@
         <attr name="thumbColorNormal" format="reference|color" />
         <attr name="thumbColorPressed" format="reference|color" />
         <attr name="fontSize" format="dimension" />
-        <attr name="fontColor" format="dimension" />
+        <attr name="fontColor" format="color" />
+        <attr name="selectedFontColor" format="color"/>
     </declare-styleable>
 
 </resources>

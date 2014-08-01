@@ -28,6 +28,8 @@
             android:layout_height="wrap_content"
             custom:barWeight="10dp"
             custom:fontSize="24sp"
+            custom:fontColor="#ffffff"
+            custom:selectedFontColor="#000000"
             custom:tickCount="4" />
         
           <TextView

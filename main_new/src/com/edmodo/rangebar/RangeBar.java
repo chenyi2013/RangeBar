@@ -69,6 +69,7 @@ public class RangeBar extends View {
 	private float mBarWeight = DEFAULT_BAR_WEIGHT_PX;
 	private int mBarColor = DEFAULT_BAR_COLOR;
 	private int mFontColor = Color.parseColor("#666666");
+	private int mSelectedFontColor;
 	private float mConnectingLineWeight = DEFAULT_CONNECTING_LINE_WEIGHT_PX;
 	private int mConnectingLineColor = DEFAULT_CONNECTING_LINE_COLOR;
 	private int mThumbImageNormal = DEFAULT_THUMB_IMAGE_NORMAL;
@@ -279,8 +280,9 @@ public class RangeBar extends View {
 
 		mBar.setFontSize(mFontSize);
 		mBar.setData(mContent);
-		mBar.draw(canvas, mLeftIndex);
 		mBar.setFontColor(mFontColor);
+		mBar.setSelectedFontColor(mSelectedFontColor);
+		mBar.draw(canvas, mLeftIndex);
 		mLeftThumb.draw(canvas, mTickHeightDP);
 
 	}
@@ -620,6 +622,8 @@ public class RangeBar extends View {
 					24 * mSdpi);
 			mFontColor = ta
 					.getColor(R.styleable.RangeBar_fontColor, mFontColor);
+			mSelectedFontColor = ta.getColor(
+					R.styleable.RangeBar_selectedFontColor, Color.YELLOW);
 
 		} finally {
 
